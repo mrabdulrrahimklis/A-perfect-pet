@@ -1,23 +1,27 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
+import { RouterName, RouterPath } from "@/router/types";
+import StartView from "@/views/StartView/StartView.vue";
+import QuestionsView from "@/views/QuestionsView/QuestionsView.vue";
+import FinalAnswerView from "@/views/FinalAnswerView/FinalAnswerView.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/",
-    name: "Home",
-    component: Home
+    path: RouterPath.StartView,
+    name: RouterName.StartView,
+    component: StartView
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    path: RouterPath.QuestionView,
+    name: RouterName.QuestionView,
+    component: QuestionsView
+  },
+  {
+    path: RouterPath.FinalAnswerView,
+    name: RouterName.FinalAnswerView,
+    component: FinalAnswerView
   }
 ];
 
